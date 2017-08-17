@@ -28,9 +28,6 @@ namespace COMP123_S2017_FinalExam_StudentID
         PictureBox _currentClickedCard;
         Deck _deck;
         Hand _hand;
-        SoundPlayer _cardFlipSound;
-        SoundPlayer _cardDealSound;
-        ScoreBoard _scoreboard;
         int _maximumPoints;
 
         // PUBLIC PROPERTIES +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -102,47 +99,6 @@ namespace COMP123_S2017_FinalExam_StudentID
             }
         }
 
-        public SoundPlayer CardFlipSound
-        {
-
-            get
-            {
-                return this._cardFlipSound;
-            }
-
-            set
-            {
-                this._cardFlipSound = value;
-            }
-
-        }
-
-        public SoundPlayer CardDealSound
-        {
-            get
-            {
-                return this._cardDealSound;
-            }
-
-            set
-            {
-                this._cardDealSound = value;
-            }
-        }
-
-        public ScoreBoard ScoreBoard
-        {
-            get
-            {
-                return this._scoreboard;
-            }
-
-            set
-            {
-                this._scoreboard = value;
-            }
-        }
-
         public int MaximumPoints
         {
             get
@@ -185,7 +141,6 @@ namespace COMP123_S2017_FinalExam_StudentID
         {
             PictureBox CurrentDealtCard = this.DealtCardPictureBoxList[this.CurrentDealtCardIndex];
             CurrentDealtCard.Visible = true;
-            this.CardDealSound.Play();
             this.CurrentDealtCardIndex = this.DealtCardPictureBoxList.IndexOf(CurrentDealtCard) + 1;
             if (this.CurrentDealtCardIndex >= this.DealtCardPictureBoxList.Count)
             {
@@ -239,8 +194,6 @@ namespace COMP123_S2017_FinalExam_StudentID
             this._hideCards();
             this._resetDeck();
             CountDownTimer.Enabled = true;
-            ScoreBoard.Score = 0;
-            ScoreBoard.Time = 30;
             this.MaximumPoints = 100;
             DealButton.Enabled = true;
             this._enableDealtCards();
@@ -268,12 +221,9 @@ namespace COMP123_S2017_FinalExam_StudentID
         /// <param name="e"></param>
         private void PickHighestCardForm_Load(object sender, EventArgs e)
         {
-            // Initialize ScoreBoard
-            this.ScoreBoard = new ScoreBoard(ScoreTextBox, TimeTextBox, FinalScoreTextBox);
+            // Initialize ScoreBoard HERE
 
             // Initialize the App Sounds
-            this.CardFlipSound = new SoundPlayer(Properties.Resources.cardflip);
-            this.CardDealSound = new SoundPlayer(Properties.Resources.carddeal);
             this._buildDealtCardPictureBoxList();
             this._reset();
         }
@@ -321,7 +271,9 @@ namespace COMP123_S2017_FinalExam_StudentID
             {
                 this.CurrentClickedCard.BackColor = Color.Green;
                 UserMessageTextBox.Text = "You Got It!";
-                ScoreBoard.Score += this.MaximumPoints;
+
+                //Uncomment this --> ScoreBoard.Score += this.MaximumPoints;
+
                 DealButton.Enabled = true;
             }
             // otherwise Red
@@ -346,7 +298,6 @@ namespace COMP123_S2017_FinalExam_StudentID
             this.CurrentClickedCard = CardPictureBox;
             this.CardFlipTimer.Enabled = true;
             this._showUserMessage();
-            this.CardFlipSound.Play();
         }
 
         /// <summary>
@@ -407,6 +358,7 @@ namespace COMP123_S2017_FinalExam_StudentID
         /// <param name="e"></param>
         private void CountDownTimer_Tick(object sender, EventArgs e)
         {
+            /* Uncomment THIS
             ScoreBoard.UpdateTime();
             if (ScoreBoard.Time == 0)
             {
@@ -415,6 +367,7 @@ namespace COMP123_S2017_FinalExam_StudentID
                 this._disableDealtCards();
                 this._showFinalScore();
             }
+            */
         }
 
         /// <summary>
