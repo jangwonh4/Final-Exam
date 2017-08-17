@@ -31,15 +31,15 @@
             this.components = new System.ComponentModel.Container();
             this.DealButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.CardShowTimer = new System.Windows.Forms.Timer(this.components);
-            this.UserMessageTextBox = new System.Windows.Forms.TextBox();
-            this.ResetButton = new System.Windows.Forms.Button();
-            this.CardFlipTimer = new System.Windows.Forms.Timer(this.components);
             this.FifthCardPictureBox = new System.Windows.Forms.PictureBox();
             this.FourthCardPictureBox = new System.Windows.Forms.PictureBox();
             this.ThirdCardPictureBox = new System.Windows.Forms.PictureBox();
             this.SecondCardPictureBox = new System.Windows.Forms.PictureBox();
             this.FirstCardPictureBox = new System.Windows.Forms.PictureBox();
+            this.CardShowTimer = new System.Windows.Forms.Timer(this.components);
+            this.UserMessageTextBox = new System.Windows.Forms.TextBox();
+            this.ResetButton = new System.Windows.Forms.Button();
+            this.CardFlipTimer = new System.Windows.Forms.Timer(this.components);
             this.ScoreTextBox = new System.Windows.Forms.TextBox();
             this.ScoreLabel = new System.Windows.Forms.Label();
             this.TimeLabel = new System.Windows.Forms.Label();
@@ -87,40 +87,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(558, 108);
             this.tableLayoutPanel1.TabIndex = 2;
-            // 
-            // CardShowTimer
-            // 
-            this.CardShowTimer.Interval = 350;
-            this.CardShowTimer.Tick += new System.EventHandler(this.CardTimer_Tick);
-            // 
-            // UserMessageTextBox
-            // 
-            this.UserMessageTextBox.BackColor = System.Drawing.Color.Black;
-            this.UserMessageTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.UserMessageTextBox.ForeColor = System.Drawing.Color.White;
-            this.UserMessageTextBox.Location = new System.Drawing.Point(12, 75);
-            this.UserMessageTextBox.Name = "UserMessageTextBox";
-            this.UserMessageTextBox.ReadOnly = true;
-            this.UserMessageTextBox.Size = new System.Drawing.Size(558, 38);
-            this.UserMessageTextBox.TabIndex = 3;
-            this.UserMessageTextBox.TabStop = false;
-            this.UserMessageTextBox.Text = "Click the Deal Button!";
-            this.UserMessageTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // ResetButton
-            // 
-            this.ResetButton.Location = new System.Drawing.Point(12, 436);
-            this.ResetButton.Name = "ResetButton";
-            this.ResetButton.Size = new System.Drawing.Size(171, 52);
-            this.ResetButton.TabIndex = 4;
-            this.ResetButton.Text = "Reset";
-            this.ResetButton.UseVisualStyleBackColor = true;
-            this.ResetButton.Click += new System.EventHandler(this.ResetButton_Click);
-            // 
-            // CardFlipTimer
-            // 
-            this.CardFlipTimer.Interval = 16;
-            this.CardFlipTimer.Tick += new System.EventHandler(this.CardFlipTimer_Tick);
             // 
             // FifthCardPictureBox
             // 
@@ -188,6 +154,40 @@
             this.FirstCardPictureBox.Visible = false;
             this.FirstCardPictureBox.Click += new System.EventHandler(this.CardPictureBox_Click);
             // 
+            // CardShowTimer
+            // 
+            this.CardShowTimer.Interval = 350;
+            this.CardShowTimer.Tick += new System.EventHandler(this.CardTimer_Tick);
+            // 
+            // UserMessageTextBox
+            // 
+            this.UserMessageTextBox.BackColor = System.Drawing.Color.Black;
+            this.UserMessageTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.UserMessageTextBox.ForeColor = System.Drawing.Color.White;
+            this.UserMessageTextBox.Location = new System.Drawing.Point(12, 75);
+            this.UserMessageTextBox.Name = "UserMessageTextBox";
+            this.UserMessageTextBox.ReadOnly = true;
+            this.UserMessageTextBox.Size = new System.Drawing.Size(558, 30);
+            this.UserMessageTextBox.TabIndex = 3;
+            this.UserMessageTextBox.TabStop = false;
+            this.UserMessageTextBox.Text = "Click the Deal Button!";
+            this.UserMessageTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // ResetButton
+            // 
+            this.ResetButton.Location = new System.Drawing.Point(12, 436);
+            this.ResetButton.Name = "ResetButton";
+            this.ResetButton.Size = new System.Drawing.Size(171, 52);
+            this.ResetButton.TabIndex = 4;
+            this.ResetButton.Text = "Reset";
+            this.ResetButton.UseVisualStyleBackColor = true;
+            this.ResetButton.Click += new System.EventHandler(this.ResetButton_Click);
+            // 
+            // CardFlipTimer
+            // 
+            this.CardFlipTimer.Interval = 16;
+            this.CardFlipTimer.Tick += new System.EventHandler(this.CardFlipTimer_Tick);
+            // 
             // ScoreTextBox
             // 
             this.ScoreTextBox.BackColor = System.Drawing.Color.Black;
@@ -196,10 +196,11 @@
             this.ScoreTextBox.Location = new System.Drawing.Point(139, 12);
             this.ScoreTextBox.Name = "ScoreTextBox";
             this.ScoreTextBox.ReadOnly = true;
-            this.ScoreTextBox.Size = new System.Drawing.Size(151, 38);
+            this.ScoreTextBox.Size = new System.Drawing.Size(151, 30);
             this.ScoreTextBox.TabIndex = 5;
             this.ScoreTextBox.TabStop = false;
             this.ScoreTextBox.Text = "0";
+           
             // 
             // ScoreLabel
             // 
@@ -208,7 +209,7 @@
             this.ScoreLabel.ForeColor = System.Drawing.Color.White;
             this.ScoreLabel.Location = new System.Drawing.Point(12, 12);
             this.ScoreLabel.Name = "ScoreLabel";
-            this.ScoreLabel.Size = new System.Drawing.Size(121, 39);
+            this.ScoreLabel.Size = new System.Drawing.Size(99, 31);
             this.ScoreLabel.TabIndex = 6;
             this.ScoreLabel.Text = "Score:";
             // 
@@ -219,7 +220,7 @@
             this.TimeLabel.ForeColor = System.Drawing.Color.White;
             this.TimeLabel.Location = new System.Drawing.Point(296, 12);
             this.TimeLabel.Name = "TimeLabel";
-            this.TimeLabel.Size = new System.Drawing.Size(107, 39);
+            this.TimeLabel.Size = new System.Drawing.Size(87, 31);
             this.TimeLabel.TabIndex = 8;
             this.TimeLabel.Text = "Time:";
             // 
@@ -231,7 +232,7 @@
             this.TimeTextBox.Location = new System.Drawing.Point(423, 12);
             this.TimeTextBox.Name = "TimeTextBox";
             this.TimeTextBox.ReadOnly = true;
-            this.TimeTextBox.Size = new System.Drawing.Size(151, 38);
+            this.TimeTextBox.Size = new System.Drawing.Size(151, 30);
             this.TimeTextBox.TabIndex = 7;
             this.TimeTextBox.TabStop = false;
             this.TimeTextBox.Text = "30";
@@ -259,7 +260,7 @@
             this.FinalScoreTextBox.Location = new System.Drawing.Point(229, 329);
             this.FinalScoreTextBox.Name = "FinalScoreTextBox";
             this.FinalScoreTextBox.ReadOnly = true;
-            this.FinalScoreTextBox.Size = new System.Drawing.Size(171, 38);
+            this.FinalScoreTextBox.Size = new System.Drawing.Size(171, 30);
             this.FinalScoreTextBox.TabIndex = 10;
             this.FinalScoreTextBox.TabStop = false;
             this.FinalScoreTextBox.Text = "0";
@@ -273,10 +274,11 @@
             this.FinalScoreLabel.ForeColor = System.Drawing.Color.White;
             this.FinalScoreLabel.Location = new System.Drawing.Point(12, 328);
             this.FinalScoreLabel.Name = "FinalScoreLabel";
-            this.FinalScoreLabel.Size = new System.Drawing.Size(211, 39);
+            this.FinalScoreLabel.Size = new System.Drawing.Size(171, 31);
             this.FinalScoreLabel.TabIndex = 11;
             this.FinalScoreLabel.Text = "Final Score:";
             this.FinalScoreLabel.Visible = false;
+            
             // 
             // PickHighestCardForm
             // 

@@ -13,8 +13,8 @@ using System.Threading;
 
 /*
  * Name: Mingi Jang
- * Date:
- * StudentID:
+ * Date: 08/17/2017
+ * StudentID: 300932496
  * Description:
  * Version:
  */
@@ -32,6 +32,21 @@ namespace COMP123_S2017_FinalExam_StudentID
         Deck _deck;
         Hand _hand;
         int _maximumPoints;
+        private ScoreBoard _scoreBoard;
+
+        public ScoreBoard ScoreBoard
+        {
+            get
+            {
+                return this._scoreBoard;
+            }
+            set
+            {
+                this._scoreBoard = value;
+            }
+        }
+            
+            
 
         // PUBLIC PROPERTIES +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         public List<PictureBox> DealtCardPictureBoxList
@@ -145,6 +160,7 @@ namespace COMP123_S2017_FinalExam_StudentID
             UserMessageTextBox.Text = "Pick the Highest Card";
             DealButton.Enabled = false;
             this.MaximumPoints = 100;
+            
         }
 
         /// <summary>
@@ -212,6 +228,8 @@ namespace COMP123_S2017_FinalExam_StudentID
             this._enableDealtCards();
             this._hideFinalScore();
             UserMessageTextBox.Text = "Click the Deal Button!";
+            ScoreBoard.Score = 0;
+            ScoreBoard.Time = 30;
         }
 
         /// <summary>
@@ -235,6 +253,8 @@ namespace COMP123_S2017_FinalExam_StudentID
         private void PickHighestCardForm_Load(object sender, EventArgs e)
         {
             // Initialize ScoreBoard HERE
+
+            this.ScoreBoard = new ScoreBoard(this.ScoreTextBox, this.TimeTextBox, this.FinalScoreTextBox);
 
             // Initialize the App Sounds
             this._buildDealtCardPictureBoxList();
@@ -285,7 +305,7 @@ namespace COMP123_S2017_FinalExam_StudentID
                 this.CurrentClickedCard.BackColor = Color.Green;
                 UserMessageTextBox.Text = "You Got It!";
 
-                //Uncomment this --> ScoreBoard.Score += this.MaximumPoints;
+                ScoreBoard.Score += this.MaximumPoints;
 
                 DealButton.Enabled = true;
             }
@@ -340,6 +360,8 @@ namespace COMP123_S2017_FinalExam_StudentID
                 CardFlipTimer.Enabled = false;
             }
 
+            SoundPlayer audio = new SoundPlayer(COMP123_S2017_FinalExam_StudentID.Properties.Resources.cardflip);
+            audio.Play();
         }
 
         /// <summary>
@@ -371,7 +393,7 @@ namespace COMP123_S2017_FinalExam_StudentID
         /// <param name="e"></param>
         private void CountDownTimer_Tick(object sender, EventArgs e)
         {
-            /* Uncomment THIS
+            
             ScoreBoard.UpdateTime();
             if (ScoreBoard.Time == 0)
             {
@@ -380,7 +402,7 @@ namespace COMP123_S2017_FinalExam_StudentID
                 this._disableDealtCards();
                 this._showFinalScore();
             }
-            */
+            
         }
 
         /// <summary>
@@ -410,5 +432,7 @@ namespace COMP123_S2017_FinalExam_StudentID
         {
             Application.Exit();
         }
+
+        
     }
 }
