@@ -9,9 +9,10 @@ using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 /*
- * Name:
+ * Name: Mingi Jang
  * Date:
  * StudentID:
  * Description:
@@ -20,6 +21,8 @@ using System.Windows.Forms;
 
 namespace COMP123_S2017_FinalExam_StudentID
 {
+        
+    
     public partial class PickHighestCardForm : Form
     {
         // PRIVATE INSTANCE VARIABLES ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -113,9 +116,19 @@ namespace COMP123_S2017_FinalExam_StudentID
         }
 
         // CONSTRUCTORS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        // Add Splash Form
         public PickHighestCardForm()
         {
+            Thread t = new Thread(new ThreadStart(SplashStart));
+            t.Start();
+            Thread.Sleep(3000);
             InitializeComponent();
+            t.Abort();
+            
+        }
+        public void SplashStart()
+        {
+            Application.Run(new SplashForm());
         }
 
         // PRIVATE METHODS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
